@@ -1,0 +1,26 @@
+{% extends "base.html" %}{% block heading %}Welcome to Opal Broadcast{% endblock %}{% block content %}
+CAMPAIGN WORKSPACE
+Make every customer
+conversation count.
+
+Organise opted-in customers, prepare creative campaigns and manage WhatsApp messaging in one place.
+
+Create a campaign â†—
+â—‰Campaign studioImage Â· PDF Â· Templates
+AT A GLANCE
+Workspace overview
+
+Total contacts{{ s.contacts }}In your audience
+Eligible audience{{ s.eligible }}Opted-in & pending
+API accepted{{ s.sent }}Submitted successfully
+Failed{{ s.failed }}Needs review
+Campaigns{{ s.campaigns }}Created so far
+RECENT WORK
+Campaign history
+
+View all â†—
+{% for c in recent %}{% else %}{% endfor %}
+CAMPAIGN	TEMPLATE	STATUS	CREATED
+{{ c.title }}	{{ c.template_name }}	{{ c.status }}	{{ c.created_at }}
+Your campaigns will appear here.
+{% endblock %}
