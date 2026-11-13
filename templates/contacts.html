@@ -1,0 +1,23 @@
+{% extends "base.html" %}{% block heading %}Contacts{% endblock %}{% block content %}
+IMPORT CONTACTS
+Upload customer list
+
+CSV columns: name, phone, opted_in, consent_source. Only explicit consent is imported as opted in.
+
+Import CSV â†—
+Download sample CSV
+CONSENT MANAGEMENT
+Respect customer choice
+
+New contacts default to opted out. Enable consent only when the customer has explicitly agreed to receive WhatsApp messages from your business.
+
+AUDIENCE
+Customer contacts
+
+Search
+{% for p in rows %}{% else %}{% endfor %}
+CUSTOMER	PHONE	CONSENT	STATUS	UPDATE
+{{ p.name or 'â€”' }}	{{ p.phone }}	{{ 'Opted in' if p.opted_in else 'Opted out' }}{% if p.consent_source %}{{ p.consent_source }}{% endif %}	{{ p.status }}	
+{{ 'Disable' if p.opted_in else 'Enable' }}
+No contacts found.
+{% endblock %}
