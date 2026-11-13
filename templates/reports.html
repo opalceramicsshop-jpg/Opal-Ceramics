@@ -1,0 +1,12 @@
+{% extends "base.html" %}{% block heading %}Reports{% endblock %}{% block content %}
+CAMPAIGN PERFORMANCE
+Message activity
+
+Latest 500 events
+{% for r in rows %}{% else %}{% endfor %}
+TIME	CAMPAIGN	CONTACT	PHONE	RESULT	DETAIL
+{{ r.created_at }}	{{ r.title }}	{{ r.name }}	{{ r.phone }}	{{ r.result }}	{{ r.detail or 'â€”' }}
+No campaign activity recorded yet.
+â€œAPI acceptedâ€ is not the same as delivered or read. Configure Meta webhooks to receive final message status updates.
+
+{% endblock %}
